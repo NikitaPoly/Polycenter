@@ -13,7 +13,9 @@ export default component$(() => {
       <a href="/projects" className={documentMeta.title === "Projects" ? "selected" : ""}>
         Projects
       </a>
-      <img src="PCLogo.svg" />
+      <div>
+        <img src="PCLogo.svg" />
+      </div>
       <a href="/resume" className={documentMeta.title === "Resume" ? "selected" : ""}>
         Resume
       </a>

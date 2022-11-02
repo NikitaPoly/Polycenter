@@ -1,6 +1,7 @@
 import { component$, Slot } from "@builder.io/qwik";
 import type { DocumentHead, DocumentLink } from "@builder.io/qwik-city";
 import Nav from "../components/layout/home/Nav";
+import Ecard from "../components/layout/home/Ecard";
 
 const fontLinks: DocumentLink[] = [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -17,9 +18,8 @@ export const head: DocumentHead = {
 export default component$(() => {
   return (
     <>
-      <header>
-        <Nav />
-      </header>
+      <Ecard />
+      <Nav />
       <main className="Home">
         <Slot />
       </main>
