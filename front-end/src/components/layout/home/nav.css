@@ -36,5 +36,6 @@ nav div {
 @media only screen and (max-width: 1000px) {
   nav {
     font-size: 2vh;
+    border-radius: 7%;
   }
 }

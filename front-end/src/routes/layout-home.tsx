@@ -19,10 +19,10 @@ export default component$(() => {
   return (
     <>
       <Ecard />
-      <Nav />
-      <main className="Home">
-        <Slot />
-      </main>
+      <header>
+        <Nav />
+      </header>
+      <Slot />
     </>
   );
 });

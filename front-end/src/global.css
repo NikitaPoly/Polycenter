@@ -18,10 +18,8 @@
   font-family: "Roboto", sans-serif;
 }
 
-main {
+main.home {
   overflow: hidden;
-}
-main.Home {
   background-color: var(--home-light);
   min-height: 92vh;
 }
