@@ -17,8 +17,12 @@
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
-
-main.home {
+ul,
+ol {
+  list-style: none;
+}
+main.home,
+main.projects {
   overflow: hidden;
   background-color: var(--home-light);
   min-height: 92vh;

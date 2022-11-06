@@ -3,7 +3,8 @@ nav {
   color: var(--home-light);
   font-size: 3vh;
   height: 8vh;
-  border-radius: 0 0 3px 3px;
+  border-bottom-left-radius: 3px 3px;
+  border-bottom-right-radius: 3px 3px;
   display: flex;
   list-style: none;
   justify-content: space-around;
@@ -36,6 +37,5 @@ nav div {
 @media only screen and (max-width: 1000px) {
   nav {
     font-size: 2vh;
-    border-radius: 7%;
   }
 }
