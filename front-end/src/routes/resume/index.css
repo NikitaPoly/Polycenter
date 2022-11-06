@@ -1,0 +1,18 @@
+main.resume {
+  display: flex;
+  justify-content: space-around;
+}
+main.resume ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+main.resume p {
+  width: 40vw;
+  align-self: center;
+}
+main.resume button {
+  font-size: 2rem;
+  padding: 1.75rem 4rem;
+  border-width: 3px;
+}

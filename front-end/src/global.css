@@ -9,6 +9,9 @@
 :root {
   --home-dark: #201327;
   --home-light: #e0f9f7;
+  --github-gray: #333333;
+  --linkedin-blue: #0072b1;
+  --pdf-red: #f40f02;
 }
 
 * {
@@ -22,8 +25,25 @@ ol {
   list-style: none;
 }
 main.home,
-main.projects {
+main.projects,
+main.resume {
   overflow: hidden;
   background-color: var(--home-light);
   min-height: 92vh;
+}
+button {
+  border-radius: 40px;
+  padding: 0.3rem 1.2rem;
+  border-color: var(--home-dark);
+  color: var(--home-light);
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.54);
+}
+button.github {
+  background-color: var(--github-gray);
+}
+button.linkedin {
+  background-color: var(--linkedin-blue);
+}
+button.resume {
+  background-color: var(--pdf-red);
 }
