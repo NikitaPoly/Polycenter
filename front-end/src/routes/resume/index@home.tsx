@@ -1,7 +1,6 @@
 import { component$, useStyles$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import styles from "./index.css";
-
 export default component$(() => {
   useStyles$(styles);
   return (
@@ -12,11 +11,11 @@ export default component$(() => {
         <button class="resume">Resume</button>
       </ul>
       <p>
-        jlksdhf sdlfh sdkfh sdkf sdfh sdk fksdhfjksdhfkjsd lsdh lksdhf sdlkfh sdlkfh sd fhsdlfsdlkfhl sdfh
-        sdlkf hsdlkfh sdlkfh sdlfh sdlkfh sdl fhlksdfh lksdfh sdlkfh sdlkf jlksdhf sdlfh sdkfh sdkf sdfh sdk
-        fksdhfjksdhfkjsd lsdh lksdhf sdlkfh sdlkfh sd fhsdlfsdlkfhl sdfh sdlkf hsdlkfh sdlkfh sdlfh sdlkfh sdl
-        fhlksdfh lksdfh sdlkfh sdlkf jlksdhf sdlfh sdkfh sdkf sdfh sdk fksdhfjksdhfkjsd lsdh lksdhf sdlkfh
-        sdlkfh sd fhsdlfsdlkfhl sdfh sdlkf hsdlkfh sdlkfh sdlfh sdlkfh sdl fhlksdfh lksdfh sdlkfh sdlkf
+        I am a software engineer from the greater Seattle area. My high school passion for programming lead to
+        graduate from DePauw University with a computer science degree. In addition to working in Seattle
+        programming continues to stay my passion. Teaching others is an important part of software development
+        as it helps look at problems from different perspectives, while having an open mind to learning not
+        only increases tech skills but also exercises the brain.
       </p>
     </main>
   );
