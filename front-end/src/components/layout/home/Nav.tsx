@@ -1,9 +1,9 @@
-import { component$, useStylesScoped$ } from "@builder.io/qwik";
+import { component$, useStyles$ } from "@builder.io/qwik";
 import { useDocumentHead } from "@builder.io/qwik-city";
 import styles from "./nav.css";
 
 export default component$(() => {
-  useStylesScoped$(styles);
+  useStyles$(styles);
   const documentMeta = useDocumentHead();
   return (
     <nav>
