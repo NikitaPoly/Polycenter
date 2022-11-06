@@ -44,7 +44,7 @@ main.projects section ul {
 main.projects section p {
   max-width: 400px;
 }
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1000px) and (orientation: portrait) {
   main.projects div.projectsContainer {
     flex-flow: column;
     height: 100%;
