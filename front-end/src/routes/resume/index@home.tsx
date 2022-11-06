@@ -1,9 +1,9 @@
-import { component$, useStylesScoped$ } from "@builder.io/qwik";
+import { component$, useStyles$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import styles from "./index.css";
 
 export default component$(() => {
-  useStylesScoped$(styles);
+  useStyles$(styles);
   return (
     <main class="resume">
       <ul>

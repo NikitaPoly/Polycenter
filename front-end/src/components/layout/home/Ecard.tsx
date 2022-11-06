@@ -1,8 +1,8 @@
-import { component$, useStylesScoped$ } from "@builder.io/qwik";
+import { component$, useStyles$ } from "@builder.io/qwik";
 import styles from "./Ecard.css";
 
 export default component$(() => {
-  useStylesScoped$(styles);
+  useStyles$(styles);
   return (
     <div class="ecard">
       <span class="h1">Nikita Polyakov</span>
