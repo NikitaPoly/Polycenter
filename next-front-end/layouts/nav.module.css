@@ -20,7 +20,7 @@ nav.home a:hover {
   background-color: var(--home-light);
   color: var(--home-dark);
 }
-nav.home a.selected {
+nav.home .selected {
   background-color: var(--home-light);
   color: var(--home-dark);
 }

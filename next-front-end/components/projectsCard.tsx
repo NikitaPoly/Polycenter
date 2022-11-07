@@ -5,8 +5,8 @@ export default function ProjectCard(props: any) {
       <h2>{props.type}</h2>
       <ul>
         Tags:
-        {props.tags.map((tag: any) => (
-          <li key={Math.random()}>{tag}</li>
+        {props.tags.map((tag: any, idx: number) => (
+          <li key={idx}>{tag}</li>
         ))}
       </ul>
       <a>{props.link}</a>

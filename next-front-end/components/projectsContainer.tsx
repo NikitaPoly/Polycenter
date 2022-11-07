@@ -5,9 +5,9 @@ import styles from "../styles/projects.module.css";
 
 export default function ProjectsContainer() {
   const container = useRef(null);
-  const projectsComponentList = ListOfProjects.map((projectData) => (
+  const projectsComponentList = ListOfProjects.map((projectData: any, idx: number) => (
     <ProjectCard
-      key={Math.random()}
+      key={idx}
       name={projectData.name}
       type={projectData.type}
       tags={projectData.tags}
