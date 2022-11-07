@@ -1,0 +1,38 @@
+.ecard {
+  height: 100vh;
+  width: 100vw;
+  border-left: 1vw solid var(--home-dark);
+  border-right: 1vw solid var(--home-dark);
+  border-top: 2vh solid var(--home-dark);
+  border-bottom: 2vh solid var(--home-dark);
+  display: none;
+  background-color: var(--home-light);
+  color: var(--home-dark);
+  padding: 0 1rem;
+}
+.ecard a {
+  text-decoration: none;
+  align-self: center;
+  background-color: var(--home-dark);
+  color: var(--home-light);
+  font-size: 2vw;
+  padding: 1vw;
+}
+@media only screen and (orientation: landscape) and (hover: none) and (max-height: 500px) {
+  .ecard {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    position: fixed;
+    align-items: center;
+  }
+  .span1 {
+    font-size: 6vw;
+  }
+  .span2 {
+    font-size: 5vw;
+  }
+  .span3 {
+    font-size: 4vw;
+  }
+}

@@ -1,21 +1,53 @@
-html,
-body {
+:root {
+  --home-dark: #201327;
+  --home-light: #e0f9f7;
+  --github-gray: #333333;
+  --linkedin-blue: #0072b1;
+  --pdf-red: #f40f02;
+}
+* {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Roboto", sans-serif;
 }
-
+ul,
+ol {
+  list-style: none;
+}
 a {
   color: inherit;
   text-decoration: none;
 }
-
-* {
-  box-sizing: border-box;
+button {
+  border-radius: 40px;
+  padding: 0.3rem 1.2rem;
+  border-color: var(--home-dark);
+  color: var(--home-light);
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.54);
+  background-color: var(--home-dark);
+  transition: box-shadow 0.2s;
 }
-
-@media (prefers-color-scheme: dark) {
+button:hover {
+  box-shadow: 5px 5px 10px 0px rgb(0, 0, 0);
+}
+button.github {
+  background-color: var(--github-gray);
+}
+button.linkedin {
+  background-color: var(--linkedin-blue);
+}
+button.resume {
+  background-color: var(--pdf-red);
+}
+main.home,
+main.projects,
+main.resume,
+main.contact {
+  overflow: hidden;
+  background-color: var(--home-light);
+  min-height: 92vh;
+}
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
@@ -23,4 +55,4 @@ a {
     color: white;
     background: black;
   }
-}
+} */
