@@ -1,0 +1,57 @@
+.contact {
+  display: grid;
+  grid-template-rows: 1fr 1/2fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "email button" "title error" "body body";
+}
+.contact input {
+  border-color: var(--home-dark);
+  background-color: white;
+}
+.contact label.email,
+.contact label.title,
+.contact div.button,
+.contact label.body,
+.contact div.error {
+  font-size: 1.5rem;
+}
+.contact label.email {
+  grid-area: email;
+  padding: 0 10vw;
+  padding-top: 3rem;
+}
+.contact label.title {
+  grid-area: title;
+  padding: 0 10vw;
+}
+.contact label.body {
+  padding: 0 10vw;
+  grid-area: body;
+}
+.contact div.error {
+  grid-area: error;
+  text-align: center;
+}
+.contact div.button {
+  grid-area: button;
+  text-align: center;
+  padding-top: 3rem;
+}
+.contact textarea {
+  width: 100%;
+  height: 40vh;
+  resize: none;
+  border-color: var(--home-dark);
+}
+.contact div.button button {
+  font-size: 2rem;
+  padding: 1rem 2rem;
+}
+@media only screen and (max-width: 425px) and (orientation: portrait) {
+  .contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+}
