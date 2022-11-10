@@ -6,6 +6,7 @@
   width: 25vw;
   text-align: center;
   padding: 3rem 0 0 0;
+  z-index: 2;
 }
 .home p {
   background-color: white;
@@ -16,7 +17,7 @@
 .home h1,
 .home h2 {
   font-size: 3vw;
-  color: var(--home-dark);
+  color: var(--home-light);
   font-weight: 400;
 }
 @media only screen and (max-width: 1000px) and (orientation: portrait) {

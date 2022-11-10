@@ -2,6 +2,9 @@ import { useState } from "react";
 import styles from "../styles/contact.module.css";
 import Layout from "../layouts/home";
 import { ContactMessage } from "./api/contact";
+import Wave from "../three/wave";
+import { Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
 
 function SendMessage(message: ContactMessage) {
   try {
@@ -24,6 +27,13 @@ export default function Contact() {
   return (
     //@ts-ignore
     <Layout>
+      <div className="homeBackgrounds">
+        <Canvas shadows>
+          <Suspense fallback={null}>
+            <Wave />
+          </Suspense>
+        </Canvas>
+      </div>
       <main className={`${styles.contact} contact`}>
         <label className={styles.email}>
           Email{" "}
