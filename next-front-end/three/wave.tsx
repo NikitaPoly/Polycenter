@@ -82,7 +82,7 @@ export default function Wave() {
         <planeGeometry args={[20, 10, 10, 15]}></planeGeometry>
         <meshPhongMaterial
           color="white"
-          opacity={opacity < 0.7 ? opacity : 0.7}
+          opacity={opacity < 0.6 ? opacity : 0.6}
           transparent
         ></meshPhongMaterial>
       </mesh>
