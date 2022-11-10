@@ -9,7 +9,7 @@
   z-index: 2;
 }
 .home p {
-  background-color: white;
+  background-color: var(--home-light);
   height: 75vh;
   box-shadow: 0px 0px 3px 1px var(--home-dark);
   border-radius: 3px;
@@ -20,7 +20,7 @@
   color: var(--home-light);
   font-weight: 400;
 }
-@media only screen and (max-width: 1000px) and (orientation: portrait) {
+@media only screen and (max-width: 1000px) {
   .home {
     flex-flow: column;
   }
@@ -36,10 +36,17 @@
     padding: 0.5rem 1rem;
     border-radius: 3%;
     width: 80vw;
+    background-color: white;
   }
   .home h1,
   .home h2 {
     font-size: 13vw;
+    color: var(--home-dark);
+  }
+}
+@media only screen and (max-width: 899px) and (orientation: landscape) {
+  .home {
+    display: none;
   }
 }
 /* @media (prefers-color-scheme: dark) {

@@ -16,7 +16,14 @@ export default function ProjectsContainer() {
     />
   ));
   return (
-    <div className={styles.projectsContainer} ref={container}>
+    <div
+      className={styles.projectsContainer}
+      ref={container}
+      onWheel={(e) => {
+        e.preventDefault();
+        (container.current as any).scrollLeft += e.deltaY;
+      }}
+    >
       {projectsComponentList}
     </div>
   );

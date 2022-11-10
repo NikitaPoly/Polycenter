@@ -5,8 +5,8 @@
   grid-template-areas: "email button" "title error" "body body";
 }
 .contact input {
-  border-color: var(--home-dark);
   background-color: white;
+  background-color: var(--home-light);
 }
 .contact label.email,
 .contact label.title,
@@ -44,6 +44,7 @@
   height: 40vh;
   resize: none;
   border-color: var(--home-dark);
+  background-color: var(--home-light);
 }
 .contact div.button button {
   font-size: 2rem;
@@ -55,5 +56,18 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    color: var(--home-dark);
+  }
+  .contact label.email,
+  .contact label.title,
+  .contact div.button,
+  .contact label.body,
+  .contact div.error {
+    color: var(--home-dark);
+  }
+}
+@media only screen and (max-width: 899px) and (orientation: landscape) {
+  .contact {
+    display: none;
   }
 }

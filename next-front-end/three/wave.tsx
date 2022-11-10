@@ -9,7 +9,7 @@ import { useEffect, useRef } from "react";
 const NUMBER_OF_VERTEX = 176;
 const MAX_APLITUDE = 0.2;
 const MIN_APLITUDE = -0.2;
-const RATE_OF_CHANGE_MULTIPLIER = 0.0009;
+const RATE_OF_CHANGE_MULTIPLIER = 0.0025;
 //This is an array that is filled with 1 or -1.
 //@ts-ignore
 let ARRAY_OF_DIRECTION = new Array(NUMBER_OF_VERTEX).fill(0);
@@ -73,11 +73,11 @@ export default function Wave() {
   return (
     <>
       <perspectiveCamera />
-      <directionalLight args={["#e0f9f7", 1.5]} position={[-10, 0, 1]} />
+      <directionalLight args={["#56A3A6", 1.5]} position={[-10, 0, 1]} />
 
       <mesh ref={mesh} position={[1, 1, 1]}>
         <planeGeometry args={[20, 10, 10, 15]}></planeGeometry>
-        <meshPhongMaterial color="#e0f9f7"></meshPhongMaterial>
+        <meshPhongMaterial color="white"></meshPhongMaterial>
       </mesh>
     </>
   );

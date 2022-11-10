@@ -53,6 +53,11 @@ main.contact {
   height: 92vh;
   width: 100%;
 }
+@media only screen and (max-width: 1000px) {
+  .homeBackgrounds {
+    display: none;
+  }
+}
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
