@@ -1,20 +1,10 @@
 import styles from "../styles/resume.module.css";
 import Layout from "../layouts/home";
-import { Canvas } from "@react-three/fiber";
-import Wave from "../three/wave";
-import { Suspense } from "react";
 export default function Resume() {
   return (
     //@ts-ignore
     <Layout>
       <main className={`${styles.resume} resume`}>
-        <div className="homeBackgrounds">
-          <Canvas shadows>
-            <Suspense fallback={null}>
-              <Wave />
-            </Suspense>
-          </Canvas>
-        </div>
         <ul>
           <button className="github">GitHub</button>
           <button className="linkedin">LinkedIn</button>

@@ -1,6 +1,7 @@
 :root {
-  --home-dark: #201327;
+  --home-dark: #140c18;
   --home-light: #e0f9f7;
+  --home-light-green: #7fe2db;
   --github-gray: #333333;
   --linkedin-blue: #0072b1;
   --pdf-red: #f40f02;
@@ -44,7 +45,7 @@ main.projects,
 main.resume,
 main.contact {
   overflow: hidden;
-  background-color: var(--home-light);
+  background-color: #56a3a6;
   min-height: 92vh;
 }
 .homeBackgrounds {

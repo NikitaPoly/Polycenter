@@ -1,6 +1,6 @@
 import { useFrame } from "@react-three/fiber";
 import helper from "./helper";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /*
     This is suppose to be the animation for the wave in the packground of the main page.
@@ -9,7 +9,7 @@ import { useEffect, useRef } from "react";
 const NUMBER_OF_VERTEX = 176;
 const MAX_APLITUDE = 0.2;
 const MIN_APLITUDE = -0.2;
-const RATE_OF_CHANGE_MULTIPLIER = 0.0025;
+const RATE_OF_CHANGE_MULTIPLIER = 0.003;
 //This is an array that is filled with 1 or -1.
 //@ts-ignore
 let ARRAY_OF_DIRECTION = new Array(NUMBER_OF_VERTEX).fill(0);
@@ -21,7 +21,7 @@ ARRAY_OF_DIRECTION.forEach((_, i) => {
 export default function Wave() {
   //plane mesh refference
   const mesh: any = useRef(null);
-
+  const [opacity, setOpacity] = useState(0);
   function animate() {
     //boiler plate for getting the actual array of vertex from the plane mesh
     const { geometry } = mesh.current;
@@ -46,6 +46,9 @@ export default function Wave() {
         position.needsUpdate = true;
         geometry.computeVertexNormals();
       }
+    }
+    if (opacity < 1) {
+      setOpacity(opacity + 0.01);
     }
   }
   function set_ridges() {
@@ -73,11 +76,15 @@ export default function Wave() {
   return (
     <>
       <perspectiveCamera />
-      <directionalLight args={["#56A3A6", 1.5]} position={[-10, 0, 1]} />
+      <directionalLight args={["#7FE2DB", 1.5]} position={[-10, 0, 1]} />
 
       <mesh ref={mesh} position={[1, 1, 1]}>
         <planeGeometry args={[20, 10, 10, 15]}></planeGeometry>
-        <meshPhongMaterial color="white"></meshPhongMaterial>
+        <meshPhongMaterial
+          color="white"
+          opacity={opacity < 0.7 ? opacity : 0.7}
+          transparent
+        ></meshPhongMaterial>
       </mesh>
     </>
   );
