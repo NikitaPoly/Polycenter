@@ -1,0 +1,24 @@
+{
+  "name": "Student Delivery Service",
+  "short_name": "SDS",
+  "start_url": "/sds",
+  "scope": ["/sds", "/sds/order", "/sds/deliver", "/sds/settings"],
+  "icons": [
+    {
+      "src": "./vercel.svg",
+      "sizes": "512X512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./vercel.svg",
+      "sizes": "144X144",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#FFFFFF",
+  "display": "fullscreen",
+  "orientation": "portrait"
+}

@@ -1,3 +1,8 @@
+import Layout from "../../layouts/sds";
 export default function SDShome() {
-  return <div>hello</div>;
+  return (
+    <Layout>
+      <div>hello</div>
+    </Layout>
+  );
 }

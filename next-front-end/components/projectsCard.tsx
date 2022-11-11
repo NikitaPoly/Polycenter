@@ -9,7 +9,9 @@ export default function ProjectCard(props: any) {
           <li key={idx}>{tag}</li>
         ))}
       </ul>
-      <a>{props.link}</a>
+      {
+        //<a>{props.link}</a>
+      }
       <p>{props.bio}</p>
     </section>
   );
