@@ -15,7 +15,6 @@
   display: flex;
   flex-flow: column;
   justify-content: space-around;
-  background-color: var(--home-light);
   transition: box-shadow 0.2s;
 }
 .projects section:hover {
@@ -36,7 +35,7 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  height: 23vh;
+  height: 27vh;
   z-index: 2;
 }
 .projects section h1,

@@ -27,6 +27,7 @@ export default function Contact() {
       <main className={`${styles.contact} contact`}>
         <label className={styles.email}>
           Email
+          <br />
           <input
             value={userEmail}
             type="email"
@@ -38,6 +39,7 @@ export default function Contact() {
 
         <label className={styles.title}>
           Title
+          <br />
           <input
             value={messageTitle}
             type="text"

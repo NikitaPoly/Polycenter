@@ -1,7 +1,7 @@
 :root {
-  --home-dark: #2c1636;
+  --home-dark: #272a52;
   --home-light: #e0f9f7;
-  --home-light-green: #7fe2db;
+  --home-light-green: #7fdde2;
   --github-gray: #333333;
   --linkedin-blue: #0072b1;
   --pdf-red: #f40f02;
@@ -46,12 +46,12 @@ main.resume,
 main.contact {
   overflow: hidden;
   background-color: #56a3a6;
-  min-height: 92vh;
+  min-height: 96vh;
 }
 .homeBackgrounds {
   position: absolute;
   z-index: 1;
-  height: 92vh;
+  height: 96vh;
   width: 100%;
 }
 @media only screen and (max-width: 1000px) {

@@ -7,6 +7,7 @@
 .contact input {
   background-color: white;
   background-color: var(--home-light);
+  border-color: black;
 }
 .contact label.email,
 .contact label.title,
@@ -15,7 +16,6 @@
 .contact div.error {
   font-size: 1.5rem;
   z-index: 2;
-  color: var(--home-dark);
 }
 .contact label.email {
   grid-area: email;

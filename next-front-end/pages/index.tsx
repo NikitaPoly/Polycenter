@@ -17,12 +17,7 @@ export default function Home() {
         </section>
         <section>
           <h2>About</h2>
-          <p>
-            This website is the home page of polycenter.space. In addition to hosting online services I also
-            use this website as a coding sandbox to showcase and practice development skills. Part of the
-            learning process is to collaborate with others. Don’t hesitate to send a message in the{" "}
-            <Link href="/contact">Contact Page</Link> or use it as a tool to report a bug you find.
-          </p>
+          <p></p>
         </section>
       </main>
     </Layout>

@@ -76,13 +76,13 @@ export default function Wave() {
   return (
     <>
       <perspectiveCamera />
-      <directionalLight args={["#7FE2DB", 1.5]} position={[-10, 0, 1]} />
+      <directionalLight args={["#7fdde2", 1.5]} position={[-10, 0, 1]} />
 
       <mesh ref={mesh} position={[1, 1, 1]}>
         <planeGeometry args={[20, 10, 10, 15]}></planeGeometry>
         <meshPhongMaterial
           color="white"
-          opacity={opacity < 0.6 ? opacity : 0.6}
+          opacity={opacity < 0.3 ? opacity : 0.3}
           transparent
         ></meshPhongMaterial>
       </mesh>

@@ -9,7 +9,7 @@
   z-index: 2;
 }
 .home p {
-  background-color: var(--home-light);
+  background-color: white;
   height: 70vh;
   box-shadow: 0px 0px 3px 1px var(--home-dark);
   border-radius: 3px;
@@ -19,7 +19,7 @@
 .home h1,
 .home h2 {
   font-size: 3vw;
-  color: var(--home-dark);
+  color: black;
   font-weight: 400;
 }
 .home a {

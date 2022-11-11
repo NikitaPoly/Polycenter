@@ -20,7 +20,6 @@ export default function ProjectsContainer() {
       className={styles.projectsContainer}
       ref={container}
       onWheel={(e) => {
-        e.preventDefault();
         (container.current as any).scrollLeft += e.deltaY;
       }}
     >
