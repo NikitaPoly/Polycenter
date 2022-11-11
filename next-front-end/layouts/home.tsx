@@ -5,7 +5,7 @@ import Wave from "../three/wave";
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 
-const Home: NextPage = (props: any) => {
+export default function Home(props: any) {
   return (
     <>
       <Ecard />
@@ -22,5 +22,4 @@ const Home: NextPage = (props: any) => {
       {props.children}
     </>
   );
-};
-export default Home;
+}
