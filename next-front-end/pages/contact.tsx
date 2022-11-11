@@ -26,7 +26,7 @@ export default function Contact() {
     <Layout>
       <main className={`${styles.contact} contact`}>
         <label className={styles.email}>
-          Email{" "}
+          Email
           <input
             value={userEmail}
             type="email"
@@ -37,7 +37,7 @@ export default function Contact() {
         </label>
 
         <label className={styles.title}>
-          Title{" "}
+          Title
           <input
             value={messageTitle}
             type="text"
@@ -48,7 +48,7 @@ export default function Contact() {
         </label>
 
         <label className={styles.body}>
-          Body{" "}
+          Body
           <textarea
             value={messageBody}
             onChange={(e) => {
