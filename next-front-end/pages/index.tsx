@@ -1,5 +1,6 @@
 import styles from "../styles/Home.module.css";
 import Layout from "../layouts/home";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -20,7 +21,7 @@ export default function Home() {
             This website is the home page of polycenter.space. In addition to hosting online services I also
             use this website as a coding sandbox to showcase and practice development skills. Part of the
             learning process is to collaborate with others. Don’t hesitate to send a message in the{" "}
-            <a href="/contact">Contact Page</a> or use it as a tool to report a bug you find.
+            <Link href="/contact">Contact Page</Link> or use it as a tool to report a bug you find.
           </p>
         </section>
       </main>
