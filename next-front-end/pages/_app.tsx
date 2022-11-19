@@ -9,6 +9,10 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="manifest" href={"/manifest.json"} />
         <link rel={"apple-touch-icon"} href={".icons/apple-icon-180.png"}></link>
         <meta name={"theme-color"} content={"#FFF"} />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        />
       </Head>
       <Component {...pageProps} />
     </>

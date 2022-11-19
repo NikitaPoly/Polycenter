@@ -5,6 +5,8 @@
   --github-gray: #333333;
   --linkedin-blue: #0072b1;
   --pdf-red: #f40f02;
+  --sds-dark: #28303f;
+  --sds-light: #f3de8a;
 }
 * {
   padding: 0;
@@ -47,6 +49,11 @@ main.contact {
   overflow: hidden;
   background-color: #56a3a6;
   min-height: 96vh;
+}
+main.sds {
+  overflow: hidden;
+  background-color: var(--sds-light);
+  min-height: 90vh;
 }
 .homeBackgrounds {
   position: absolute;
