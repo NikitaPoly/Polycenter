@@ -1,8 +1,11 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { SessionProvider } from "next-auth/react";
+import { useRouter } from "next/router";
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps, session }: any) {
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -14,7 +17,16 @@ export default function App({ Component, pageProps }: AppProps) {
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         />
       </Head>
-      <Component {...pageProps} />
+      {
+        //only render google log in if on the sds page
+        router.pathname.includes("sds") ? (
+          <SessionProvider session={session}>
+            <Component {...pageProps} />
+          </SessionProvider>
+        ) : (
+          <Component {...pageProps} />
+        )
+      }
     </>
   );
 }
