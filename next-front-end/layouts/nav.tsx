@@ -19,19 +19,19 @@ export default function Nav() {
       </Head>
       <nav className={styles.home}>
         <Link href="/" className={router.pathname === "/" ? styles.selected : ""}>
-          <HomeIcon />
+          <HomeIcon fontSize="large" />
         </Link>
         <Link href="/projects" className={router.pathname === "/projects" ? styles.selected : ""}>
-          <CodeIcon />
+          <CodeIcon fontSize="large" />
         </Link>
         <div>
           <Image src={logo} alt="PC Logo" />
         </div>
         <Link href="/resume" className={router.pathname === "/resume" ? styles.selected : ""}>
-          <DescriptionIcon />
+          <DescriptionIcon fontSize="large" />
         </Link>
         <Link href="/contact" className={router.pathname === "/contact" ? styles.selected : ""}>
-          <ContactMailIcon />
+          <ContactMailIcon fontSize="large" />
         </Link>
       </nav>
     </>

@@ -1,0 +1,14 @@
+nav.sds {
+  background-color: var(--sds-dark);
+  height: 10vh;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+nav.sds .selected {
+  color: var(--sds-light);
+}
+.svgIcon {
+  transform: scale(2);
+}
