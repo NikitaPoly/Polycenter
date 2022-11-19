@@ -18,7 +18,7 @@
   font-size: 2vw;
   padding: 1vw;
 }
-@media only screen and (orientation: landscape) and (hover: none) and (max-height: 500px) {
+@media only screen and (orientation: landscape) and (max-height: 500px) {
   .ecard {
     display: flex;
     flex-flow: column;
