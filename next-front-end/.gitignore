@@ -15,6 +15,7 @@ sw.js.map
 
 # production
 /build
+/public/workbox*
 
 # misc
 .DS_Store
