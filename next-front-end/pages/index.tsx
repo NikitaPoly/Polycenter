@@ -13,7 +13,10 @@ export default function Home() {
         </section>
         <section>
           <h2>Links</h2>
-          <p>Links to othere "apps" on the website and projects</p>
+          <p>
+            Links to othere "apps" on the website and projects
+            <Link href="/sds">SDS</Link>
+          </p>
         </section>
         <section>
           <h2>About</h2>
