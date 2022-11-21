@@ -12,15 +12,29 @@ export default function DropDownSDSInfo(props: any) {
       <style jsx>{`
         p {
           background-color: white;
-          padding: 1rem;
+          padding: 1.5rem;
           border-radius: 50px;
-          margin-bottom: 3vh;
+          margin-bottom: 1vh;
           font-size: 2vh;
+          width: 70%;
         }
         h1 {
           color: var(--sds-dark);
           text-align: center;
-          font-size: 5vh;
+          font-size: 4vw;
+        }
+        @media only screen and (max-width: 1300px) {
+          p {
+            font-size: 1.5vw;
+          }
+        }
+        @media only screen and (max-width: 425px) {
+          p {
+            font-size: 2vh;
+          }
+          h1 {
+            font-size: 5vh;
+          }
         }
       `}</style>
     </>

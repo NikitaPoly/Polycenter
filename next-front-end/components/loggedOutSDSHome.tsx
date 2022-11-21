@@ -30,17 +30,56 @@ export default function LoggedOutSDSHome() {
         #DDContainer span {
           display: flex;
           flex-flow: column;
-          width: 50%;
-          height: 100%;
-          padding: 0 2rem 2rem 2rem;
-          justify-content: center;
+          justify-content: space-around;
           align-items: center;
         }
+        #DDContainer span#buttons {
+          width: 40%;
+        }
+        #DDContainer span#info {
+          width: 60%;
+        }
         #DDContainer button {
-          width: 10vw;
           margin: 10vh 0;
-          font-size: 3rem;
-          padding: 1rem;
+          font-size: 4vh;
+          padding: 1.5vw;
+        }
+        @media only screen and (max-width: 425px) {
+          #DDContainer {
+            flex-flow: column;
+            justify-content: space-around;
+            height: 100%;
+            padding-top: 2rem;
+          }
+          #DDContainer span#buttons {
+            width: 100%;
+            margin-bottom: 1rem;
+            flex-flow: row;
+          }
+          #DDContainer span#info {
+            width: 100%;
+          }
+          #DDContainer button {
+            margin: 0;
+            font-size: 4vh;
+            padding: 2vh 5vw;
+          }
+        }
+        @media only screen and (hover: none) and (orientation: landscape) {
+          #DDContainer {
+            height: 100vh;
+          }
+          #DDContainer span#info {
+            margin-top: 1rem;
+            overflow-y: scroll;
+            justify-content: start;
+            align-items: center;
+          }
+          #DDContainer button {
+            margin: 0;
+            font-size: 5vh;
+            padding: 3vh 5vw;
+          }
         }
       `}</style>
     </>
