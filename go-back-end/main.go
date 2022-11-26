@@ -6,9 +6,16 @@ import (
 	"go-back-end/handlers"
 	"net/http"
 	"os"
+
+	"github.com/joho/godotenv"
 )
 
 func main(){
+  err := godotenv.Load()
+	if err != nil{
+		fmt.Println(("GO API: Error getting env file"))
+	}
+
   fmt.Println("GOAPI: PT GO API started");
   //set port
   port:= os.Getenv("PORT")
