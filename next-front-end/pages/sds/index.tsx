@@ -1,5 +1,5 @@
 import Layout from "../../layouts/sds";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import LoggedIn from "../../components/loggedInSDSHome";
 import LoggedOut from "../../components/loggedOutSDSHome";
 import styles from "../../styles/sdsHome.module.css";

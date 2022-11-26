@@ -1,7 +1,12 @@
 import DropDownSDSInfo from "./dropDownSDSInfo";
+import { useSession, signIn, signOut } from "next-auth/react";
 //import { BrowserView, MobileView } from "react-device-detect";
+function LogInSignUpHanlder() {
+  signIn();
+}
 
 export default function LoggedOutSDSHome() {
+  const { data: session } = useSession();
   return (
     <>
       {/* {<MobileView>
@@ -13,8 +18,20 @@ export default function LoggedOutSDSHome() {
       </MobileView> */}
       <div id="DDContainer">
         <span id="buttons">
-          <button>Sign Up</button>
-          <button>Log In</button>
+          <button
+            onClick={() => {
+              LogInSignUpHanlder();
+            }}
+          >
+            Sign Up
+          </button>
+          <button
+            onClick={() => {
+              LogInSignUpHanlder();
+            }}
+          >
+            Log In
+          </button>
         </span>
         <span id="info">
           <DropDownSDSInfo title="Earn" />
