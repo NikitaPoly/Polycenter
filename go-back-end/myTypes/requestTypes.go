@@ -1,6 +1,6 @@
 package mytypes
 
-type contactMessage struct{
+type ContactMessage struct{
 	Email string
 	Title string
 	Body string
@@ -9,5 +9,5 @@ type contactMessage struct{
 type DBActionBody struct {
 	Action string
 	Collection string
-	Content contactMessage
+	Content ContactMessage
 }
