@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start -p 3000",
     "lint": "next lint",
-    "build:docker": "docker build . -t next-pt-fe"
+    "build:docker": "docker build . -t front-end-api"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -19,6 +19,7 @@
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",
+    "axios": "^1.2.0",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.2",
     "next": "13.0.2",

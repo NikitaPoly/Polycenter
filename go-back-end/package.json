@@ -1,0 +1,12 @@
+{
+  "name": "go-back-end",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-linux": "go env -w GOOS=linux && go build -o ./bin/linux/PTSERVER.exe ./main.go",
+    "build-windows": "go env -w GOOS=windows && go build -o ./bin/windows/PTSERVER.exe ./main.go"
+  },
+  "author": "",
+  "license": "ISC"
+}

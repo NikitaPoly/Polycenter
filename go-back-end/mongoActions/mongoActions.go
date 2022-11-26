@@ -3,16 +3,16 @@ package mongoactions
 import (
 	"context"
 	"fmt"
-	"os"
 	"time"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
+const MONGO_URI = "mongodb+srv://PolyakovDOTTech:LPQYMYKHUZV1o@polyakovtechdb.n6fvv.mongodb.net/?retryWrites=true&w=majority"
 
 func SaveAction(collectionName string, dataToSave interface{}) error {
 	//get client for mongodb
-	client, err := mongo.NewClient(options.Client().ApplyURI(os.Getenv("MONGO_URI")))
+	client, err := mongo.NewClient(options.Client().ApplyURI(MONGO_URI))
 	if err != nil {
 		return err
 	}

@@ -10,14 +10,15 @@ export type GoContactMessage = {
   action: string;
   collection: string;
 };
+
+function host() {
+  return process.env.NODE_ENV == "development" ? "localhost" : "backend";
+}
 export default async function hanlder(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
     const body: ContactMessage = JSON.parse(req.body);
     const GoBody: GoContactMessage = { content: body, action: "SAVE", collection: "ContactRequest" };
-    await fetch("http://127.0.0.1:8080/dbAction", {
-      method: "POST",
-      body: JSON?.stringify(GoBody),
-    });
+    await fetch("http://" + host() + ":8080/dbAction", { method: "POST", body: JSON.stringify(GoBody) });
     res.status(200).send({ message: "Contact Message Received" });
   } else {
     res.status(405).send({ message: "Only Post Allowed" });

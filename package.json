@@ -1,0 +1,23 @@
+{
+  "name": "website",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "build:be": "cd ./go-back-end && npm run build-linux && npm run build-windows",
+    "tag": "docker tag goapi nikitapolytech/goapi:current && docker tag nextapi nikitapolytech/nextapi:current",
+    "build": "docker compose build",
+    "build-docker:fe": "cd ./next-front-end && npm run build && npm run bduil:docker",
+    "build-docker:be": "cd ./go-back-end && docker build . -t back-end-api",
+    "demo": "docker compose up"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NikitaPoly/Polycenter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NikitaPoly/Polycenter/issues"
+  },
+  "homepage": "https://github.com/NikitaPoly/Polycenter#readme"
+}
