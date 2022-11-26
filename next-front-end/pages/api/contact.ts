@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { Host } from "../../static-content/utils";
 
 export type ContactMessage = {
   email: string;
@@ -11,14 +12,11 @@ export type GoContactMessage = {
   collection: string;
 };
 
-function host() {
-  return process.env.NODE_ENV == "development" ? "localhost" : "backend";
-}
-export default async function hanlder(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
     const body: ContactMessage = JSON.parse(req.body);
     const GoBody: GoContactMessage = { content: body, action: "SAVE", collection: "ContactRequest" };
-    await fetch("http://" + host() + ":8080/dbAction", { method: "POST", body: JSON.stringify(GoBody) });
+    await fetch("http://" + Host() + ":8080/home/contact", { method: "POST", body: JSON.stringify(GoBody) });
     res.status(200).send({ message: "Contact Message Received" });
   } else {
     res.status(405).send({ message: "Only Post Allowed" });

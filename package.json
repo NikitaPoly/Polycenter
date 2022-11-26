@@ -5,9 +5,13 @@
   "scripts": {
     "build:be": "cd ./go-back-end && npm run build-linux && npm run build-windows",
     "tag": "docker tag goapi nikitapolytech/goapi:current && docker tag nextapi nikitapolytech/nextapi:current",
-    "build": "docker compose build",
-    "build-docker:fe": "cd ./next-front-end && npm run build && npm run bduil:docker",
+    "build:docker": "docker compose build",
+    "build-docker:fe": "cd ./next-front-end && npm run build && npm run build:docker",
     "build-docker:be": "cd ./go-back-end && docker build . -t back-end-api",
+    "build:fe": "cd ./next-front-end && npm run build",
+    "build:dev": "npm run build:be && npm run build:fe",
+    "build": "npm run build:dev && npm run build:docker",
+    "test": "npm run build && npm run demo",
     "demo": "docker compose up"
   },
   "repository": {

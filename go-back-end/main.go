@@ -22,8 +22,10 @@ func main(){
   }else{
     port = ":" + port
   }
-  //http handler for db acces
-  http.HandleFunc("/dbAction",handlers.FindAction)
+  //http handlers for home api
+  http.HandleFunc("/home/contact",handlers.SaveContactMessage)
+  //http hanlders for sds api
+  http.HandleFunc("/sdsUsers/signUp",handlers.CreateNewSDSUser)
   http.ListenAndServe(port,nil)
 
 }

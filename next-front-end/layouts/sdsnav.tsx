@@ -12,7 +12,7 @@ export default function SdsNav() {
   return (
     <>
       <Head>
-        <title>{router.pathname === "/sds" ? "PT SDS" : router.pathname.replace("/", "")}</title>
+        <title>{router.pathname === "/sds" ? "PT SDS" : router.pathname.replace("/sds/", "")}</title>
         <meta property="og:title" content="My page title" key="title" />
       </Head>
       <nav className={styles.sds}>
