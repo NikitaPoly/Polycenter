@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import Layout from "../../layouts/sds";
 
 function handleSignUp(newUserEmailInput: string, form: any) {
-  console.log(newUserEmailInput);
   form.reportValidity();
   if (!form.checkValidity()) {
     return;

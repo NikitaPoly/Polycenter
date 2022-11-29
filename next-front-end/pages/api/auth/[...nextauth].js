@@ -1,5 +1,6 @@
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
+import { Host } from "../../../static-content/utils";
 /*
 https://next-auth.js.org/configuration/callbacks
  -
@@ -17,12 +18,17 @@ export default NextAuth({
     async signIn({ user }) {
       //also add request to db to check if accoutn exists for this account
       //if account does not exist redirect to sign up page
-      const isDePauw = user.email.includes("@depauw.edu");
+      const userEmail = user.email;
+      const isDePauw = userEmail.includes("@depauw.edu");
       if (isDePauw) {
-        return true;
+        const res = await fetch("http://" + Host() + ":8080/sdsUsers/checkExists", {
+          body: JSON.stringify({ userEmail: userEmail }),
+          method: "POST",
+        });
+        return res.status === 200 ? true : "/sds/signup";
       } //add else if for if email not in db and depauw then redirect to signup
       else {
-        return false;
+        return "/sds/signup";
       }
     },
   },
