@@ -1,11 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Host } from "../../static-content/utils";
 
+//get this from request
 export type ContactMessage = {
   email: string;
   title: string;
   body: string;
 };
+//send this to go API
 export type GoContactMessage = {
   content: ContactMessage;
   action: string;

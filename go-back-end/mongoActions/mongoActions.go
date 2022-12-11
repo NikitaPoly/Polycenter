@@ -37,7 +37,7 @@ func SaveAction(collectionName string, dataToSave interface{}) error {
 }
 
 func CheckIfUserExists(collectionName string,userEmail string) bool {
-	filter := bson.D{{"newuseremail",userEmail}}
+	filter := bson.D{{"useremail",userEmail}}
 	//get client for mongodb
 	client, err := mongo.NewClient(options.Client().ApplyURI(MONGO_URI))
 	if err != nil {

@@ -12,12 +12,16 @@ func CreateNewSDSUser(res http.ResponseWriter, req *http.Request){
 	switch req.Method{
 	case http.MethodPost:
 		fmt.Println("GO API: Request to create new user")
-		var body mytypes.NewUserRequest
+		var body mytypes.SDSUserData
         err := json.NewDecoder(req.Body).Decode(&body)
 		if err != nil{
 			fmt.Println("GO API: Error Reading create new user request")
 		}
-		mongoactions.SaveAction("SDSUsers",body)
+		var formatedUserData mytypes.SDSUserData
+		formatedUserData.GraduationYear =body.GraduationYear
+		formatedUserData.UserEmail = body.UserEmail
+		formatedUserData.UserName = body.UserName
+		mongoactions.SaveAction("SDSUsers",formatedUserData)
 	}
 }
 
@@ -30,11 +34,12 @@ func IsUserInDB(res http.ResponseWriter, req *http.Request){
 	switch req.Method{
 	case http.MethodPost:
 		fmt.Println("GO API: Request to check user in DB")
-		var body mytypes.CheckUserRequest
+		var body mytypes.SDSUserData
 		err := json.NewDecoder(req.Body).Decode(&body)
 		if err != nil{
 			fmt.Println(("GO API: Error Reading check user request"))
 		}
+		fmt.Println(body.UserEmail)
 		isInDB:=mongoactions.CheckIfUserExists("SDSUsers",body.UserEmail)
 		if isInDB {
 			res.WriteHeader(200)

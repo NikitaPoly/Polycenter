@@ -10,7 +10,11 @@ function handleSignUp(newUserEmailInput: string, form: any) {
     return;
   }
   const body = {
-    newUserEmail: newUserEmailInput,
+    UserEmail: newUserEmailInput,
+    UserName: "test Name",
+    GraduationYear: parseInt(
+      newUserEmailInput.slice(newUserEmailInput.indexOf("@") - 4, newUserEmailInput.indexOf("@"))
+    ),
   };
   fetch("/api/sds/signup", { method: "POST", body: JSON.stringify(body) });
 }

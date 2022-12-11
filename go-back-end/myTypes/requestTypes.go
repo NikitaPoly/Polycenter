@@ -12,10 +12,8 @@ type DBActionBody struct {
 	Content ContactMessage
 }
 
-type NewUserRequest struct {
-	NewUserEmail string
-}
-
-type CheckUserRequest struct{
-    UserEmail string
+type SDSUserData struct {
+	UserEmail string
+	UserName string
+	GraduationYear int
 }

@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "run:be": "cd ./go-back-end && go run ./main.go",
+    "run:fe": "cd ./next-front-end && npm run dev",
     "build:be": "cd ./go-back-end && npm run build-linux && npm run build-windows",
     "tag": "docker tag goapi nikitapolytech/goapi:current && docker tag nextapi nikitapolytech/nextapi:current",
     "build:docker": "docker compose build",

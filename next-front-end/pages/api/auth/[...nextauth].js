@@ -18,8 +18,8 @@ export default NextAuth({
     async signIn({ user }) {
       //also add request to db to check if accoutn exists for this account
       //if account does not exist redirect to sign up page
-      const userEmail = user.email;
-      const isDePauw = userEmail.includes("@depauw.edu");
+      const userEmail = user ? user.email : "";
+      const isDePauw = userEmail && userEmail.includes("@depauw.edu");
       if (isDePauw) {
         const res = await fetch("http://" + Host() + ":8080/sdsUsers/checkExists", {
           body: JSON.stringify({ userEmail: userEmail }),
