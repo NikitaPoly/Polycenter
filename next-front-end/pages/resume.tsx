@@ -1,8 +1,9 @@
 import styles from "../styles/resume.module.css";
 import Layout from "../layouts/home";
-export default function Resume() {
+import { NextPage } from "next";
+
+const Resume: NextPage = () => {
   return (
-    //@ts-ignore
     <Layout>
       <main className={`${styles.resume} resume`}>
         <ul>
@@ -14,4 +15,5 @@ export default function Resume() {
       </main>
     </Layout>
   );
-}
+};
+export default Resume;

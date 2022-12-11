@@ -1,10 +1,10 @@
 import styles from "../styles/Home.module.css";
 import Layout from "../layouts/home";
 import Link from "next/link";
+import { NextPage } from "next";
 
-export default function Home() {
+const Home: NextPage = () => {
   return (
-    //@ts-ignore
     <Layout>
       <main className={`${styles.home} home`}>
         <section>
@@ -25,4 +25,5 @@ export default function Home() {
       </main>
     </Layout>
   );
-}
+};
+export default Home;

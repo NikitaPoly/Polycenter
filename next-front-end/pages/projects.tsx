@@ -1,11 +1,11 @@
+import { NextPage } from "next";
 import ProjectsContainer from "../components/projectsContainer";
 import ProjectsOptionsBar from "../components/projectsOptionsBar";
 import Layout from "../layouts/home";
 import styles from "../styles/projects.module.css";
 
-export default function Projects() {
+const Projects: NextPage = () => {
   return (
-    //@ts-ignore
     <Layout>
       <main className={`${styles.projects} projects`}>
         <ProjectsContainer />
@@ -13,4 +13,5 @@ export default function Projects() {
       </main>
     </Layout>
   );
-}
+};
+export default Projects;

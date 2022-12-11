@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "../styles/contact.module.css";
 import Layout from "../layouts/home";
 import { ContactMessage } from "./api/contact";
+import { NextPage } from "next";
 
 function SendMessage(message: ContactMessage) {
   try {
@@ -16,13 +17,12 @@ function CheckInputs(emai: string, title: string, body: string): string {
   }
   return "";
 }
-export default function Contact() {
+const Contact: NextPage = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [messageTitle, setMessageTitle] = useState("");
   const [messageBody, setMessageBody] = useState("");
   return (
-    //@ts-ignore
     <Layout>
       <main className={`${styles.contact} contact`}>
         <label className={styles.email}>
@@ -32,7 +32,7 @@ export default function Contact() {
             value={userEmail}
             type="email"
             onChange={(e) => {
-              setUserEmail((e.target as any).value);
+              setUserEmail(e?.target.value);
             }}
           />
         </label>
@@ -44,7 +44,7 @@ export default function Contact() {
             value={messageTitle}
             type="text"
             onChange={(e) => {
-              setMessageTitle((e.target as any).value);
+              setMessageTitle(e?.target.value);
             }}
           />
         </label>
@@ -54,7 +54,7 @@ export default function Contact() {
           <textarea
             value={messageBody}
             onChange={(e) => {
-              setMessageBody((e.target as any).value);
+              setMessageBody(e?.target.value);
             }}
           />
         </label>
@@ -67,8 +67,10 @@ export default function Contact() {
                 setErrorMsg(errorMsg);
                 return;
               }
-              SendMessage({ email: userEmail, title: messageTitle, body: messageBody });
+              const message: ContactMessage = { email: userEmail, title: messageTitle, body: messageBody };
+              SendMessage(message);
               setErrorMsg("Thank you");
+              //reset
               setUserEmail("");
               setMessageBody("");
               setMessageTitle("");
@@ -80,4 +82,6 @@ export default function Contact() {
       </main>
     </Layout>
   );
-}
+};
+
+export default Contact;
