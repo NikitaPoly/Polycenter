@@ -1,16 +1,13 @@
-import { useSession, signIn, signOut } from "next-auth/react";
+import { signOut } from "next-auth/react";
 
-export default function LoggedInSDSHome() {
-  const { data: session } = useSession();
-
+export default function LoggedInSDSHome(props: any) {
   return (
     <div
       onClick={() => {
         signOut();
-        console.log(session);
       }}
     >
-      LoggedIn as {session?.user?.name}
+      LoggedIn as {props.userName}
     </div>
   );
 }

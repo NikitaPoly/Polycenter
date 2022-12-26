@@ -6,7 +6,7 @@ https://next-auth.js.org/configuration/callbacks
  -
 */
 
-export default NextAuth({
+export const authOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
@@ -32,4 +32,5 @@ export default NextAuth({
       }
     },
   },
-});
+};
+export default NextAuth(authOptions);
