@@ -10,6 +10,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
+
 const MONGO_URI = "mongodb+srv://PolyakovDOTTech:LPQYMYKHUZV1o@polyakovtechdb.n6fvv.mongodb.net/?retryWrites=true&w=majority"
 
 func SaveAction(collectionName string, dataToSave interface{}) error {
@@ -37,8 +38,8 @@ func SaveAction(collectionName string, dataToSave interface{}) error {
 	return nil
 }
 
-func CheckIfUserExists(collectionName string,userEmail string) bool {
-	filter := bson.D{{"useremail",userEmail}}
+func CheckIfUserExists(collectionName string, userEmail string) bool {
+	filter := bson.D{{"useremail", userEmail}}
 	//get client for mongodb
 	client, err := mongo.NewClient(options.Client().ApplyURI(MONGO_URI))
 	if err != nil {
@@ -67,7 +68,7 @@ func CheckIfUserExists(collectionName string,userEmail string) bool {
 		fmt.Println(err)
 		return true
 	}
-	if len(results) == 0{
+	if len(results) == 0 {
 		fmt.Println("no user")
 		return false
 	}
@@ -75,7 +76,7 @@ func CheckIfUserExists(collectionName string,userEmail string) bool {
 	return true
 }
 
-func GetUserData(userEmail string) mytypes.SDSUserData{
+func GetUserData(userEmail string) mytypes.SDSUserData {
 	//get client for mongodb
 	client, err := mongo.NewClient(options.Client().ApplyURI(MONGO_URI))
 	if err != nil {
@@ -93,13 +94,56 @@ func GetUserData(userEmail string) mytypes.SDSUserData{
 	defer client.Disconnect(ctx)
 
 	collection := client.Database("PolyakovTechDB").Collection("SDSUsers")
-	filter := bson.D{{"useremail",userEmail}}
+	filter := bson.D{{"useremail", userEmail}}
 	//get decode userData
 	var userData mytypes.SDSUserData
-	err = collection.FindOne(context.TODO(),filter).Decode(&userData)
-	if err != nil{
+	err = collection.FindOne(context.TODO(), filter).Decode(&userData)
+	if err != nil {
 		fmt.Println(err)
 		return mytypes.SDSUserData{}
 	}
 	return userData
+}
+
+func SaveSDSOrder(order mytypes.SDSCreateOrder) bool {
+	fmt.Println("New order:")
+	fmt.Println(order)
+	err := SaveAction("SDSOrders", order)
+	if err != nil {
+		fmt.Println(err)
+		return false
+	}
+	return true
+}
+
+func ReadAllSDSOrder() []bson.M {
+	// get client for mongodb
+	client, err := mongo.NewClient(options.Client().ApplyURI(MONGO_URI))
+	if err != nil {
+		fmt.Println(err)
+		return []bson.M{}
+	}
+	// connext to mongodb using client with 10 second timeout limit
+	ctx, ctxClose := context.WithTimeout(context.Background(), 10*time.Second)
+	defer ctxClose()
+	if err = client.Connect(ctx); err != nil {
+		fmt.Println(err)
+		return []bson.M{}
+	}
+	// after function is done running this will will run
+	defer client.Disconnect(ctx)
+
+	collection := client.Database("PolyakovTechDB").Collection("SDSOrders")
+
+	//get all order form colletion
+	cursor, err := collection.Find(ctx, bson.M{})
+	if err != nil {
+		return []bson.M{}
+	}
+	var orders []bson.M
+	if err = cursor.All(ctx, &orders); err != nil {
+		return []bson.M{}
+	}
+	fmt.Println(orders)
+	return orders
 }

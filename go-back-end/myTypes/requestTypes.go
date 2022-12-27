@@ -29,3 +29,14 @@ type SDSIsUserExist struct {
 type GetSDSUserData struct {
 	UserEmail string
 }
+
+type SDSOrderItem struct {
+	Name string
+	Cost float64
+}
+
+type SDSCreateOrder struct {
+	Items    []SDSOrderItem
+	Customer string
+	Worker   string
+}

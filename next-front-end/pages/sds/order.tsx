@@ -2,13 +2,29 @@ import Layout from "../../layouts/sds";
 import { getSession } from "next-auth/react";
 import { authOptions } from "../api/auth/[...nextauth]";
 import { Host } from "../../static-content/utils";
-import { SDSUserData } from "../../static-content/types";
+import { SDSOrder, SDSUserData } from "../../static-content/types";
 import { unstable_getServerSession } from "next-auth/next";
+import { SDSOrderItem } from "../../static-content/types";
 
 export type PROPS = {
   session: any;
   userData: SDSUserData;
 };
+
+async function CreateOrderRequest(customerEmail: string) {
+  try {
+    const item1: SDSOrderItem = { name: "Sandwich", cost: 10.45 };
+    const item2: SDSOrderItem = { name: "Drink", cost: 1.5 };
+    const newOrder: SDSOrder = { items: [item1, item2], customer: customerEmail, worker: "" };
+    const res = await fetch("/api/sds/order", {
+      method: "POST",
+      body: JSON.stringify(newOrder),
+    });
+  } catch (e) {
+    console.log(e);
+  }
+  console.log("order sent");
+}
 
 export default function SDShome({ session, userData }: PROPS) {
   return (
@@ -17,6 +33,18 @@ export default function SDShome({ session, userData }: PROPS) {
         <header>
           <h1>Make an Order</h1>
         </header>
+        <p>
+          Basic order:
+          <br />
+          Sandwich :$10.45 Drink : $1.50
+        </p>
+        <button
+          onClick={() => {
+            CreateOrderRequest(userData.UserEmail);
+          }}
+        >
+          Mock Order
+        </button>
       </main>
       <style jsx>{`
         header {

@@ -4,19 +4,61 @@ import { authOptions } from "../api/auth/[...nextauth]";
 import { Host } from "../../static-content/utils";
 import { SDSUserData } from "../../static-content/types";
 import { unstable_getServerSession } from "next-auth/next";
+import { useEffect, useRef, useState } from "react";
 
 export type PROPS = {
   session: any;
   userData: SDSUserData;
 };
 
+async function getAllOrders() {
+  try {
+    console.log("Request for orders Sent");
+    const response = await fetch("/api/sds/deliver", { method: "GET" });
+    const ordersList = await response.json();
+    return ordersList.ordersList;
+  } catch (e) {
+    console.log(e);
+    return [];
+  }
+}
+
 export default function SDShome({ session, userData }: PROPS) {
+  const [ordersList, setOrdersList] = useState([]);
   return (
     <Layout>
       <main className="sds">
         <header>
           <h1>Deliver Order</h1>
         </header>
+        <div id="orderList">
+          {
+            //for testing only
+            ordersList.map((order) => (
+              <ul key={Math.random()}>
+                <li>{(order as any)._id}</li>
+                <li>{(order as any).customer}</li>
+                <li>
+                  {(order as any).items.map((item: any) => (
+                    <>
+                      <p>{item.name}</p>
+                      <p>{item.cost}</p>
+                    </>
+                  ))}
+                </li>
+                <li>{(order as any).worker}</li>
+              </ul>
+            ))
+          }
+        </div>
+        <button
+          onClick={async () => {
+            const orders = await getAllOrders();
+            setOrdersList(orders);
+          }}
+        >
+          get orders
+        </button>
       </main>
       <style jsx>{`
         header {
