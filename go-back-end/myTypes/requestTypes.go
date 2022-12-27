@@ -13,10 +13,19 @@ type DBActionBody struct {
 }
 
 type SDSUserData struct {
-	UserEmail      string
-	UserName       string
-	GraduationYear int
+	ID              string
+	UserEmail       string
+	UserName        string
+	GraduationYear  int
+	OrderCompleted  int
+	OrdersRequested int
+	Ballance        int
 }
+
 type SDSIsUserExist struct {
 	IsUserExist bool
+}
+
+type GetSDSUserData struct {
+	UserEmail string
 }

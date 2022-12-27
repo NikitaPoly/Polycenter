@@ -4,9 +4,12 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import UserInfoWindowSDS from "./userInfoWindowSDS";
 import PaymentInfoWindowSDS from "./paymentInfoWindowSDS";
 import ConvertCreditsWindowSDS from "./convertCreditsWindowSDS";
+import { SDSUserData } from "../static-content/types";
 
-export default function InfoWindowSDSSettings() {
-  const options = ["User Info", "Payment Settings", "Convert Credits"];
+export type PROPS = { userData: SDSUserData };
+
+export default function InfoWindowSDSSettings({ userData }: PROPS) {
+  const options = ["User Info", "Payment Settings", "Reedeem Credits"];
   const [currentOptionIndex, setCurrentOptionIndex] = useState(0);
   return (
     <div id="container">
@@ -37,13 +40,15 @@ export default function InfoWindowSDSSettings() {
           <ArrowForwardIosIcon />
         </div>
       </span>
-      {currentOptionIndex === 0 ? (
-        <UserInfoWindowSDS />
-      ) : currentOptionIndex === 1 ? (
-        <PaymentInfoWindowSDS />
-      ) : (
-        <ConvertCreditsWindowSDS />
-      )}
+      <section>
+        {currentOptionIndex === 0 ? (
+          <UserInfoWindowSDS userData={userData} />
+        ) : currentOptionIndex === 1 ? (
+          <PaymentInfoWindowSDS />
+        ) : (
+          <ConvertCreditsWindowSDS />
+        )}
+      </section>
       <style jsx>{`
         div#container {
           display: flex;
@@ -67,6 +72,12 @@ export default function InfoWindowSDSSettings() {
           width: 30%;
           text-align: center;
           cursor: pointer;
+        }
+        section {
+          background-color: white;
+          margin: 1rem;
+          padding: 1rem;
+          border-radius: 5px;
         }
       `}</style>
     </div>

@@ -6,15 +6,18 @@ function handleSignUp(newUserEmailInput: string, form: any) {
   if (!form.checkValidity()) {
     return;
   }
-  if (!newUserEmailInput.includes("@depauw.edu")) {
+  if (!newUserEmailInput.includes("@depauw.edu") || !newUserEmailInput.includes("_")) {
     return;
   }
   const body = {
     UserEmail: newUserEmailInput,
-    UserName: "test Name",
+    UserName: newUserEmailInput.split("_")[0],
     GraduationYear: parseInt(
       newUserEmailInput.slice(newUserEmailInput.indexOf("@") - 4, newUserEmailInput.indexOf("@"))
     ),
+    OrderCompleted: 0,
+    OrdersRequested: 0,
+    Ballance: 0,
   };
   fetch("/api/sds/signup", { method: "POST", body: JSON.stringify(body) });
 }

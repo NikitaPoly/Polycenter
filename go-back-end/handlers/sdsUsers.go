@@ -50,3 +50,29 @@ func CheckUserExists(res http.ResponseWriter, req *http.Request){
 		json.NewEncoder(res).Encode(messageToNext)
 	}
 }
+
+
+func GetUserData(res http.ResponseWriter, req *http.Request){
+	switch req.Method{
+	case http.MethodGet:
+		fmt.Println("GO API: Request for user data")
+		query := req.URL.Query()
+		var userEmail string
+		for _, v := range query {
+			userEmail = v[0]
+		}
+
+		fmt.Println("GO API: Request for data from : " +userEmail)
+		userData := mongoactions.GetUserData(userEmail)
+		var emptyUser mytypes.SDSUserData
+
+		if userData ==  emptyUser{
+			res.WriteHeader(204)
+			return
+		}else{
+			res.Header().Set("Content-Type", "application/json")
+			res.WriteHeader(200)
+			json.NewEncoder(res).Encode(userData)
+		}
+	}
+}

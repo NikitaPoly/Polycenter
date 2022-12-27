@@ -3,6 +3,7 @@ package mongoactions
 import (
 	"context"
 	"fmt"
+	mytypes "go-back-end/myTypes"
 	"time"
 
 	"go.mongodb.org/mongo-driver/bson"
@@ -72,4 +73,33 @@ func CheckIfUserExists(collectionName string,userEmail string) bool {
 	}
 	fmt.Println("yes user")
 	return true
+}
+
+func GetUserData(userEmail string) mytypes.SDSUserData{
+	//get client for mongodb
+	client, err := mongo.NewClient(options.Client().ApplyURI(MONGO_URI))
+	if err != nil {
+		fmt.Println(err)
+		return mytypes.SDSUserData{}
+	}
+	//connext to mongodb using client with 10 second timeout limit
+	ctx, ctxClose := context.WithTimeout(context.Background(), 10*time.Second)
+	defer ctxClose()
+	if err = client.Connect(ctx); err != nil {
+		fmt.Println(err)
+		return mytypes.SDSUserData{}
+	}
+	//after function is done running this will will run
+	defer client.Disconnect(ctx)
+
+	collection := client.Database("PolyakovTechDB").Collection("SDSUsers")
+	filter := bson.D{{"useremail",userEmail}}
+	//get decode userData
+	var userData mytypes.SDSUserData
+	err = collection.FindOne(context.TODO(),filter).Decode(&userData)
+	if err != nil{
+		fmt.Println(err)
+		return mytypes.SDSUserData{}
+	}
+	return userData
 }

@@ -3,13 +3,19 @@ import { getSession } from "next-auth/react";
 import { unstable_getServerSession } from "next-auth/next";
 import { authOptions } from "../api/auth/[...nextauth]";
 import InfoWindowSDSSettings from "../../components/infoWindowSDSSettings";
+import { Host } from "../../static-content/utils";
+import { SDSUserData } from "../../static-content/types";
 
-export default function SDShome(props: any) {
+export type PROPS = {
+  session: any;
+  userData: SDSUserData;
+};
+export default function SDShome({ session, userData }: PROPS) {
   return (
     <Layout>
       <main className="sds">
-        <h1>{`Welcome ${props.session.user.name}`}</h1>
-        <InfoWindowSDSSettings />
+        <h1>{`Welcome ${session.user.name}`}</h1>
+        <InfoWindowSDSSettings userData={userData} />
       </main>
       <style jsx>{`
         h1 {
@@ -46,9 +52,14 @@ export const getServerSideProps = async (context: any) => {
       },
     };
   } else {
+    const SDSUserDataRequest = await fetch(
+      "http://" + Host() + `:8080/sdsUsers/getUserData?email=${session.user?.email}`
+    );
+    const GoResponseBody: SDSUserData = await SDSUserDataRequest.json();
     return {
       props: {
         session: await unstable_getServerSession(context.req, context.res, authOptions),
+        userData: GoResponseBody,
       },
     };
   }

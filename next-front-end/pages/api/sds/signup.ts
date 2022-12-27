@@ -1,12 +1,9 @@
 import { Host } from "../../../static-content/utils";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { SDSUserData } from "../../../static-content/types";
 
 //get this from request and send to GO aPI
-export type SDSUserData = {
-  UserEmail: string;
-  UserName: string;
-  GraduationYear: number;
-};
+
 export type GoResponseBody = {
   IsUserExist: boolean;
 };

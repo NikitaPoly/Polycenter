@@ -27,6 +27,7 @@ func main(){
   //http hanlders for sds api
   http.HandleFunc("/sdsUsers/signUp",handlers.CreateNewSDSUser)
   http.HandleFunc("/sdsUsers/checkUserExists",handlers.CheckUserExists)
+  http.HandleFunc("/sdsUsers/getUserData/",handlers.GetUserData)
   http.ListenAndServe(port,nil)
 
 }
