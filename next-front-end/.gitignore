@@ -12,6 +12,7 @@
 /.next/
 /out/
 sw.js.map
+/public/sw.js
 
 # production
 /build

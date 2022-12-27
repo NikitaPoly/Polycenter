@@ -1,6 +1,7 @@
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
 import { Host } from "../../../static-content/utils";
+//import { GoResponseBody } from "../sds/signup"; //type for the resposne
 /*
 https://next-auth.js.org/configuration/callbacks
  -
@@ -16,18 +17,19 @@ export const authOptions = {
   secret: process.env.JWT_SECRET,
   callbacks: {
     async signIn({ user }) {
-      //also add request to db to check if accoutn exists for this account
-      //if account does not exist redirect to sign up page
+      //if none depauw email then redirect to signup
+      //if depauw but user does not exist redirect to sign up
+      //if both conditions met then "log in"
       const userEmail = user ? user.email : "";
       const isDePauw = userEmail && userEmail.includes("@depauw.edu");
       if (isDePauw) {
-        const res = await fetch("http://" + Host() + ":8080/sdsUsers/checkExists", {
+        const GoResponse = await fetch("http://" + Host() + ":8080/sdsUsers/checkUserExists", {
           body: JSON.stringify({ userEmail: userEmail }),
           method: "POST",
         });
-        return res.status === 200 ? true : "/sds/signup";
-      } //add else if for if email not in db and depauw then redirect to signup
-      else {
+        const GoResponseBody = await GoResponse.json();
+        return GoResponseBody.IsUserExist ? true : "/sds/signup";
+      } else {
         return "/sds/signup";
       }
     },

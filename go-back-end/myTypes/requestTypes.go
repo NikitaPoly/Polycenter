@@ -1,19 +1,22 @@
 package mytypes
 
-type ContactMessage struct{
+type ContactMessage struct {
 	Email string
 	Title string
-	Body string
+	Body  string
 }
 
 type DBActionBody struct {
-	Action string
+	Action     string
 	Collection string
-	Content ContactMessage
+	Content    ContactMessage
 }
 
 type SDSUserData struct {
-	UserEmail string
-	UserName string
+	UserEmail      string
+	UserName       string
 	GraduationYear int
+}
+type SDSIsUserExist struct {
+	IsUserExist bool
 }

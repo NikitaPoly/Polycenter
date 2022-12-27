@@ -30,7 +30,7 @@ func CreateNewSDSUser(res http.ResponseWriter, req *http.Request){
 200 if user found
 204 if user not found
 */
-func IsUserInDB(res http.ResponseWriter, req *http.Request){
+func CheckUserExists(res http.ResponseWriter, req *http.Request){
 	switch req.Method{
 	case http.MethodPost:
 		fmt.Println("GO API: Request to check user in DB")
@@ -40,11 +40,13 @@ func IsUserInDB(res http.ResponseWriter, req *http.Request){
 			fmt.Println(("GO API: Error Reading check user request"))
 		}
 		fmt.Println(body.UserEmail)
+
 		isInDB:=mongoactions.CheckIfUserExists("SDSUsers",body.UserEmail)
-		if isInDB {
-			res.WriteHeader(200)
-		}else{
-			res.WriteHeader(http.StatusNoContent)
-		}
+
+		messageToNext :=  mytypes.SDSIsUserExist{IsUserExist: isInDB}
+
+		res.Header().Set("Content-Type", "application/json")
+		res.WriteHeader(200)
+		json.NewEncoder(res).Encode(messageToNext)
 	}
 }
