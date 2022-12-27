@@ -8,16 +8,20 @@
   padding: 3rem 0 0 0;
   z-index: 2;
 }
-.home p {
+.home ol {
   background-color: white;
   height: 70vh;
   box-shadow: 0px 0px 3px 1px var(--home-dark);
   border-radius: 3px;
   text-align: left;
-  padding: 1rem;
+  padding: 2rem;
+  list-style: upper-roman;
 }
-.home h1,
-.home h2 {
+.home p {
+  padding-left: 1rem;
+}
+.home section h1,
+.home section h2 {
   font-size: 3vw;
   color: black;
   font-weight: 400;
@@ -36,19 +40,26 @@
     flex-direction: column;
     align-items: center;
   }
-  .home p {
+  .home ol {
     height: 60vh;
     padding: 0.5rem 1rem;
     border-radius: 3%;
     width: 80vw;
     background-color: white;
   }
-  .home h1,
-  .home h2 {
+  .home section h1,
+  .home section h2 {
     font-size: 13vw;
   }
+  .home section ol h2 {
+    font-size: 10vw;
+  }
+  .home section ol h3 {
+    font-weight: normal;
+    padding-left: 1rem;
+  }
 }
-@media only screen and (max-width: 899px) and (orientation: landscape) {
+@media only screen and (max-width: 920px) and (orientation: landscape) {
   .home {
     display: none;
   }

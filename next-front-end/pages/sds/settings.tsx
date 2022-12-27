@@ -31,7 +31,7 @@ export default function SDShome({ session, userData }: PROPS) {
             font-size: 1.5rem;
           }
         }
-        @media only screen and (max-width: 899px) and (orientation: landscape) {
+        @media only screen and (max-width: 920px) and (orientation: landscape) {
           h1 {
             text-align: center;
             font-size: 1.5rem;

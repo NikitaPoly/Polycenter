@@ -1,19 +1,10 @@
 import DropDownSDSInfo from "./dropDownSDSInfo";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
-//import { BrowserView, MobileView } from "react-device-detect";
 
 export default function LoggedOutSDSHome() {
-  const { data: session } = useSession();
   return (
     <>
-      {/* {<MobileView>
-        <button>Sign Up</button>
-        <button>Log In</button>
-        <DropDownSDSInfo title="Earn" />
-        <DropDownSDSInfo title="Save" />
-        <DropDownSDSInfo title="Stay Safe" />
-      </MobileView> */}
       <div id="DDContainer">
         <span id="buttons">
           <Link href="/sds/signup">
@@ -28,9 +19,11 @@ export default function LoggedOutSDSHome() {
           </button>
         </span>
         <span id="info">
-          <DropDownSDSInfo title="Earn" />
-          <DropDownSDSInfo title="Save" />
-          <DropDownSDSInfo title="Stay Safe" />
+          <div id="bannerContainer">
+            <DropDownSDSInfo title="Earn" />
+            <DropDownSDSInfo title="Save" />
+            <DropDownSDSInfo title="Stay Safe" />
+          </div>
         </span>
       </div>
       <style jsx>{`
@@ -78,7 +71,7 @@ export default function LoggedOutSDSHome() {
         }
         @media only screen and (hover: none) and (orientation: landscape) {
           #DDContainer {
-            height: 100vh;
+            height: 90vh;
           }
           #DDContainer span#info {
             margin-top: 1rem;
@@ -90,6 +83,11 @@ export default function LoggedOutSDSHome() {
             margin: 0;
             font-size: 5vh;
             padding: 3vh 5vw;
+          }
+        }
+        @media only screen and (max-width: 920px) and (orientation: landscape) {
+          div#bannerContainer {
+            margin-top: 10vh;
           }
         }
       `}</style>

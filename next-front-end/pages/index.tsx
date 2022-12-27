@@ -9,18 +9,27 @@ const Home: NextPage = () => {
       <main className={`${styles.home} home`}>
         <section>
           <h1>New</h1>
-          <p>information about new features of website</p>
+          <ol>
+            <li>
+              <p>Initial Website Launch - 12/27/22</p>
+            </li>
+          </ol>
         </section>
         <section>
           <h2>Links</h2>
-          <p>
-            Links to othere "apps" on the website and projects
-            <Link href="/sds">SDS</Link>
-          </p>
+          <ol>
+            <li>
+              <p>
+                DePauw Student Delivery Service - A service for depauw student to be used as a safer option
+                for food delivery.
+              </p>
+              <Link href="/sds">Link to SDS</Link>
+            </li>
+          </ol>
         </section>
         <section>
           <h2>About</h2>
-          <p></p>
+          <ol></ol>
         </section>
       </main>
     </Layout>

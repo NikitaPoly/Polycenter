@@ -5,11 +5,12 @@ import styles from "../../styles/sdsHome.module.css";
 import { unstable_getServerSession } from "next-auth/next";
 import { authOptions } from "../api/auth/[...nextauth]";
 
-export default function SDShome(props: any) {
+export type PROPS = { session: any };
+export default function SDShome({ session }: PROPS) {
   return (
     <Layout>
       <main className={`${styles.sdsHome} sds`}>
-        {props.session ? <LoggedIn userName={props.session.user.name} /> : <LoggedOut />}
+        {session ? <LoggedIn userName={session.user.name} /> : <LoggedOut />}
       </main>
     </Layout>
   );

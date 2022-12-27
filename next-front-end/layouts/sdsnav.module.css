@@ -12,3 +12,8 @@ nav.sds .selected {
 .svgIcon {
   transform: scale(2);
 }
+@media only screen and (max-width: 920px) and (orientation: landscape) {
+  nav.sds {
+    height: 20vh;
+  }
+}

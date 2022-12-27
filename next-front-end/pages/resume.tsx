@@ -7,9 +7,30 @@ const Resume: NextPage = () => {
     <Layout>
       <main className={`${styles.resume} resume`}>
         <ul>
-          <button className="github">GitHub</button>
-          <button className="linkedin">LinkedIn</button>
-          <button className="resume">Resume</button>
+          <button
+            className="github"
+            onClick={() => {
+              window.open("https://github.com/NikitaPoly");
+            }}
+          >
+            GitHub
+          </button>
+          <button
+            className="linkedin"
+            onClick={() => {
+              window.open("https://www.linkedin.com/in/nikitapolyakovlink/");
+            }}
+          >
+            LinkedIn
+          </button>
+          <button
+            className="resume"
+            onClick={() => {
+              alert("sorry no resume yet");
+            }}
+          >
+            Resume
+          </button>
         </ul>
         <p></p>
       </main>
