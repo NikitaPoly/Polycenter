@@ -9,11 +9,6 @@ export default function InfoWindowSDSSettings() {
   const options = ["User Info", "Payment Settings", "Convert Credits"];
   const [currentOptionIndex, setCurrentOptionIndex] = useState(0);
   return (
-    // <>
-    //   {options.map((option) => (
-    //     <h2>{option}</h2>
-    //   ))}
-    // </>
     <div id="container">
       <span id="windowHeader">
         <div
