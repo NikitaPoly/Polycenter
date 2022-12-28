@@ -6,7 +6,7 @@
     "run:be": "cd ./go-back-end && go run ./main.go",
     "run:fe": "cd ./next-front-end && npm run dev",
     "build:be": "cd ./go-back-end && npm run build-linux && npm run build-windows",
-    "tag": "docker tag goapi nikitapolytech/goapi:current && docker tag nextapi nikitapolytech/nextapi:current",
+    "tag": "docker tag goapi nikitapolytech/goapi:latest && docker tag nextapi nikitapolytech/nextapi:latest",
     "build:docker": "docker compose build",
     "build-docker:fe": "cd ./next-front-end && npm run build && npm run build:docker",
     "build-docker:be": "cd ./go-back-end && docker build . -t back-end-api",
@@ -14,7 +14,10 @@
     "build:dev": "npm run build:be && npm run build:fe",
     "build": "npm run build:dev && npm run build:docker",
     "test": "npm run build && npm run demo",
-    "demo": "docker compose up"
+    "demo": "docker compose up",
+    "deploy:tag": "docker tag back-end-api nikitapolytech/goapi:latest && docker tag front-end-api nikitapolytech/nextapi:latest",
+    "deploy:push": "docker push nikitapolytech/goapi:latest && docker push nikitapolytech/nextapi:latest",
+    "deploy": "npm run build:docker && npm run deploy:tag && npm run deploy:push"
   },
   "repository": {
     "type": "git",

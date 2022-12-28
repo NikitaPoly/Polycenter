@@ -7,7 +7,7 @@ services:
     ports:
       - "8080:8080"
   frontend:
-    image: fron-end-api
+    image: front-end-api
     build:
       context: ./next-front-end
     ports:
