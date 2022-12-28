@@ -16,21 +16,19 @@ export type SDSOrder = {
   customer: string;
   worker: string;
 };
+export type DayData = {
+  isOpen: boolean;
+  openAt: Date | null;
+  closeAt: Date | null;
+};
 export type SDSStoreHours = {
-  mondayOpen: Date;
-  mondayClose: Date;
-  tuesdayOpen: Date;
-  tuesdayClose: Date;
-  wednesdayOpen: Date;
-  wednesdayClose: Date;
-  thursdayOpen: Date;
-  thursdayClose: Date;
-  fridayOpen: Date;
-  fridayClose: Date;
-  saterdayOpen: Date;
-  saterdayClose: Date;
-  sundayOpen: Date;
-  sundayClose: Date;
+  monday: DayData;
+  tuesday: DayData;
+  wednesday: DayData;
+  thursday: DayData;
+  friday: DayData;
+  saturday: DayData;
+  sunday: DayData;
 };
 export type FoodStoreData = {
   name: string;

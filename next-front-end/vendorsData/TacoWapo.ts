@@ -1,20 +1,37 @@
 import { FoodStoreData, SDSFoodMenuItem, SDSStoreHours, SDSDrinkMenuItem } from "../static-content/types";
 
 const hours: SDSStoreHours = {
-  mondayOpen: new Date(),
-  mondayClose: new Date(),
-  tuesdayOpen: new Date(),
-  tuesdayClose: new Date(),
-  wednesdayOpen: new Date(),
-  wednesdayClose: new Date(),
-  thursdayOpen: new Date(),
-  thursdayClose: new Date(),
-  fridayOpen: new Date(),
-  fridayClose: new Date(),
-  saterdayOpen: new Date(),
-  saterdayClose: new Date(),
-  sundayOpen: new Date(),
-  sundayClose: new Date(),
+  monday: { isOpen: false, openAt: null, closeAt: null },
+  tuesday: {
+    isOpen: true,
+    openAt: new Date("June 11, 2000 11:00:00"),
+    closeAt: new Date("June 11, 2000 21:00:00"),
+  },
+  wednesday: {
+    isOpen: true,
+    openAt: new Date("June 11, 2000 11:00:00"),
+    closeAt: new Date("June 11, 2000 21:00:00"),
+  },
+  thursday: {
+    isOpen: true,
+    openAt: new Date("June 11, 2000 11:00:00"),
+    closeAt: new Date("June 11, 2000 21:00:00"),
+  },
+  friday: {
+    isOpen: true,
+    openAt: new Date("June 11, 2000 11:00:00"),
+    closeAt: new Date("June 11, 2000 21:00:00"),
+  },
+  saturday: {
+    isOpen: true,
+    openAt: new Date("June 11, 2000 11:00:00"),
+    closeAt: new Date("June 11, 2000 21:00:00"),
+  },
+  sunday: {
+    isOpen: true,
+    openAt: new Date("June 11, 2000 11:00:00"),
+    closeAt: new Date("June 11, 2000 21:00:00"),
+  },
 };
 
 const mainItems: SDSFoodMenuItem[] = [
