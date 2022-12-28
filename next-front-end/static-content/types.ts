@@ -39,7 +39,7 @@ export type FoodStoreData = {
 };
 export type SDSFoodMenuItem = {
   name: string;
-  variation: SDSOrderItem[];
+  variations: SDSOrderItem[];
 };
 export type drinkSizeAndPrice = {
   [key: string]: number;

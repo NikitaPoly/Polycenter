@@ -37,7 +37,7 @@ const hours: SDSStoreHours = {
 const mainItems: SDSFoodMenuItem[] = [
   {
     name: "Burrito",
-    variation: [
+    variations: [
       { name: "Chicken", price: 7.8 },
       { name: "Steak", price: 8.4 },
       { name: "Carnitas", price: 8.4 },
@@ -49,7 +49,7 @@ const mainItems: SDSFoodMenuItem[] = [
   },
   {
     name: "Nachos",
-    variation: [
+    variations: [
       { name: "Chicken", price: 7.8 },
       { name: "Steak", price: 8.4 },
       { name: "Carnitas", price: 8.4 },
@@ -61,7 +61,7 @@ const mainItems: SDSFoodMenuItem[] = [
   },
   {
     name: "Quesadilla",
-    variation: [
+    variations: [
       { name: "Chicken", price: 7.8 },
       { name: "Steak", price: 8.4 },
       { name: "Carnitas", price: 8.4 },
@@ -73,7 +73,7 @@ const mainItems: SDSFoodMenuItem[] = [
   },
   {
     name: "Salas Bowl",
-    variation: [
+    variations: [
       { name: "Chicken", price: 7.8 },
       { name: "Steak", price: 8.4 },
       { name: "Carnitas", price: 8.4 },
@@ -85,7 +85,7 @@ const mainItems: SDSFoodMenuItem[] = [
   },
   {
     name: "3 Tacos",
-    variation: [
+    variations: [
       { name: "Chicken", price: 7.8 },
       { name: "Steak", price: 8.4 },
       { name: "Carnitas", price: 8.4 },
@@ -97,7 +97,7 @@ const mainItems: SDSFoodMenuItem[] = [
   },
   {
     name: "3 Street Tacos",
-    variation: [
+    variations: [
       { name: "Chicken", price: 7.8 },
       { name: "Steak", price: 8.4 },
       { name: "Carnitas", price: 8.4 },
@@ -109,7 +109,7 @@ const mainItems: SDSFoodMenuItem[] = [
   },
   {
     name: "Sides",
-    variation: [
+    variations: [
       { name: "Guacamole", price: 1.8 },
       { name: "Queso", price: 1.8 },
       { name: "Salsa", price: 0.7 },
@@ -119,7 +119,7 @@ const mainItems: SDSFoodMenuItem[] = [
   },
   {
     name: "Chips and",
-    variation: [
+    variations: [
       { name: "Salsa", price: 2 },
       { name: "Queso", price: 4 },
       { name: "Guacamole", price: 3.5 },
@@ -127,7 +127,7 @@ const mainItems: SDSFoodMenuItem[] = [
   },
   {
     name: "Kids Menu",
-    variation: [
+    variations: [
       { name: "Burrito", price: 4.5 },
       { name: "Quesadilla", price: 4.5 },
       { name: "Taco", price: 4.5 },
