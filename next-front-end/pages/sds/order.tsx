@@ -2,20 +2,22 @@ import Layout from "../../layouts/sds";
 import { getSession } from "next-auth/react";
 import { authOptions } from "../api/auth/[...nextauth]";
 import { Host } from "../../static-content/utils";
-import { SDSOrder, SDSUserData } from "../../static-content/types";
+import { FoodStoreData, SDSOrder, SDSUserData } from "../../static-content/types";
 import { unstable_getServerSession } from "next-auth/next";
 import { SDSOrderItem } from "../../static-content/types";
+import Data from "../../vendorsData/vendorsData";
 
 export type PROPS = {
   session: any;
   userData: SDSUserData;
 };
 
+//change
 async function CreateOrderRequest(customerEmail: string) {
   try {
-    const item1: SDSOrderItem = { name: "Sandwich", cost: 10.45 };
-    const item2: SDSOrderItem = { name: "Drink", cost: 1.5 };
-    const newOrder: SDSOrder = { items: [item1, item2], customer: customerEmail, worker: "" };
+    const item1 = { name: "Sandwich", cost: 10.45 };
+    const item2 = { name: "Drink", cost: 1.5 };
+    const newOrder = { items: [item1, item2], customer: customerEmail, worker: "" };
     const res = await fetch("/api/sds/order", {
       method: "POST",
       body: JSON.stringify(newOrder),
@@ -26,6 +28,9 @@ async function CreateOrderRequest(customerEmail: string) {
   console.log("order sent");
 }
 
+function TestStoresDisplay() {
+  console.log(Data);
+}
 export default function SDShome({ session, userData }: PROPS) {
   return (
     <Layout>
@@ -45,6 +50,7 @@ export default function SDShome({ session, userData }: PROPS) {
         >
           Mock Order
         </button>
+        <div onClick={TestStoresDisplay}>show stores</div>
       </main>
       <style jsx>{`
         header {

@@ -26,3 +26,12 @@
   - `build` : Build BE, FE and Docke Images
   - `demo` : Run Docker compose
   - `test` : Build all and run demo
+
+## Restaurants Included
+
+- Campus Store
+- Hoover
+- Taco Wapo
+- The Duck
+- Marvins
+- campus Events?
