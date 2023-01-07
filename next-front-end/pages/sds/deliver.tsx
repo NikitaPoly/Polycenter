@@ -4,7 +4,7 @@ import { authOptions } from "../api/auth/[...nextauth]";
 import { Host } from "../../static-content/utils";
 import { SDSUserData } from "../../static-content/types";
 import { unstable_getServerSession } from "next-auth/next";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 export type PROPS = {
   session: any;
@@ -32,24 +32,24 @@ export default function SDShome({ session, userData }: PROPS) {
           <h1>Deliver Order</h1>
         </header>
         <div id="orderList">
-          {
-            //for testing only
-            ordersList.map((order) => (
-              <ul key={Math.random()}>
-                <li>{(order as any)._id}</li>
-                <li>{(order as any).customer}</li>
-                <li>
-                  {(order as any).items.map((item: any) => (
-                    <>
-                      <p>{item.name}</p>
-                      <p>{item.cost}</p>
-                    </>
-                  ))}
-                </li>
-                <li>{(order as any).worker}</li>
-              </ul>
-            ))
-          }
+          {ordersList
+            ? //for testing only
+              ordersList.map((order) => (
+                <ul key={Math.random()}>
+                  <li>{(order as any)._id}</li>
+                  <li>{(order as any).customer}</li>
+                  <li>
+                    {(order as any).items.map((item: any) => (
+                      <>
+                        <p>{item.name}</p>
+                        <p>{item.cost}</p>
+                      </>
+                    ))}
+                  </li>
+                  <li>{(order as any).worker}</li>
+                </ul>
+              ))
+            : "none"}
         </div>
         <button
           onClick={async () => {

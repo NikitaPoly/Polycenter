@@ -6,6 +6,9 @@ import { FoodStoreData, SDSOrder, SDSUserData } from "../../static-content/types
 import { unstable_getServerSession } from "next-auth/next";
 import { SDSOrderItem } from "../../static-content/types";
 import Data from "../../vendorsData/vendorsData";
+import { useEffect, useState } from "react";
+import SDSMenu from "../../components/SDSMenu";
+import SDSCart from "../../components/SDSCart";
 
 export type PROPS = {
   session: any;
@@ -13,11 +16,9 @@ export type PROPS = {
 };
 
 //change
-async function CreateOrderRequest(customerEmail: string) {
+async function sendOrder(cart: any, customerEmail: string) {
   try {
-    const item1 = { name: "Sandwich", cost: 10.45 };
-    const item2 = { name: "Drink", cost: 1.5 };
-    const newOrder = { items: [item1, item2], customer: customerEmail, worker: "" };
+    const newOrder = { items: cart, customer: customerEmail, worker: "" };
     const res = await fetch("/api/sds/order", {
       method: "POST",
       body: JSON.stringify(newOrder),
@@ -28,37 +29,64 @@ async function CreateOrderRequest(customerEmail: string) {
   console.log("order sent");
 }
 
-function TestStoresDisplay() {
-  console.log(Data);
-}
 export default function SDShome({ session, userData }: PROPS) {
+  const [activeStore, setActiveStore] = useState("");
+  const [cart, setCart] = useState<Array<number>>([]);
+  const [newItem, setNewItem] = useState();
+  useEffect(() => {
+    if (newItem && Object.keys(newItem).length > 0) {
+      const temp = cart;
+      temp.push(newItem);
+      setCart([...temp]);
+    }
+  }, [newItem]);
   return (
     <Layout>
       <main className="sds">
-        <header>
-          <h1>Make an Order</h1>
-        </header>
-        <p>
-          Basic order:
-          <br />
-          Sandwich :$10.45 Drink : $1.50
-        </p>
-        <button
-          onClick={() => {
-            CreateOrderRequest(userData.UserEmail);
+        <span>
+          Select Store Near DePauw:
+          <select
+            name="foodStore"
+            id="foodStore"
+            onChange={(e) => {
+              setActiveStore(e.target.value);
+              setCart([]);
+            }}
+          >
+            <option value="" selected disabled hidden>
+              Choose here
+            </option>
+            <option value="0">Taco Wapo</option>
+            <option value="1">The Duck</option>
+            <option value="2">Hoover</option>
+            <option value="3">Marvins</option>
+            <option value="4">Campus Store</option>
+          </select>
+          <button
+            onClick={() => {
+              sendOrder(cart, userData.UserEmail);
+              setCart([]);
+              alert("order sent");
+            }}
+          >
+            Send Order
+          </button>
+          <button
+            onClick={() => {
+              setCart([]);
+            }}
+          >
+            Clear Cart
+          </button>
+        </span>
+        <SDSMenu
+          activeStoreIdx={activeStore}
+          addItemToCart={(newItem: any) => {
+            setNewItem(newItem);
           }}
-        >
-          Mock Order
-        </button>
-        <div onClick={TestStoresDisplay}>show stores</div>
+        />
+        <SDSCart cart={cart} />
       </main>
-      <style jsx>{`
-        header {
-          background-color: var(--sds-dark);
-          color: white;
-          padding: 1rem;
-        }
-      `}</style>
     </Layout>
   );
 }
